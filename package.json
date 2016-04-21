@@ -1,0 +1,17 @@
+{
+  "name": "yobert-tools",
+  "description": "Some misc helpers for DOM things",
+  "author": "yobert@gmail.com",
+  "version": "0.0.1",
+  "main": "main.js",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yobert-npmjs/tools"
+  },
+  "bugs": {
+    "url": "https://github.com/yobert-npmjs/tools/issues"
+  },
+  "license": "MIT"
+}
