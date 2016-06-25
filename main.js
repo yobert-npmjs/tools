@@ -1,5 +1,6 @@
 module.exports = {
 	listen: listen,
+	listen_key: listen_key,
 	listen_onreturn: listen_onreturn,
 	unlisten: unlisten,
 	event_keycode: event_keycode,
@@ -30,13 +31,19 @@ function unlisten(e, name, cb) {
 
 	return;
 }
-function listen_onreturn(el, cb) {
-	listen(el, 'keydown', function(e) {
-		if(event_keycode(e) == 13)
+function listen_key(el, key, cb) {
+	var r_cb = function(e) {
+		if(event_keycode(e) == key) {
+			event_stop(e);
 			return cb.apply(el);
-
+		}
 		return true;
-	});
+	};
+	listen(el, 'keydown', r_cb);
+	return r_cb;
+}
+function listen_onreturn(el, cb) {
+	return listen_key(el, 13, cb);
 }
 
 function event_stop_prop(e) {
